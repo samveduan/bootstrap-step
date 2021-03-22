@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>审计日志管理 - WEB网盘</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./static/libs/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="./static/libs/web-icons/web-icons.css">
+	<link rel="stylesheet" href="./static/libs/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="./static/css/step.css">
+</head>
+
+<body>
+
+	<!-- //step begin -->
+	<ul class="nav nav-pills nav-justified step step-progress" data-step="1" id="step-cluster">
+		<li>
+			<a>步骤 1 部署模式选择<span class="caret"></span></a>
+		</li>
+		<li>
+			<a>步骤 2 主机设置<span class="caret"></span></a>
+		</li>
+		<li>
+			<a>步骤 3 密钥安装<span class="caret"></span></a>
+		</li>
+		<li>
+			<a>步骤 4 网络配置<span class="caret"></span></a>
+		</li>
+		<li>
+			<a>步骤 5 集群配置<span class="caret"></span></a>
+		</li>
+	</ul>
+	<!-- step end // -->
+
+	<script src="./static/libs/jquery/jquery-1.11.2.min.js"></script>
+	<script src="./static/libs/bootstrap/js/bootstrap.js"></script>
+	<script>
+		function bsStep(i) {
+			$('.step').each(function () {
+				var a, $this = $(this);
+				if (i > $this.find('li').length) {
+					a = $this.find('li').length;
+				}
+				else if (i == undefined && $this.data('step') == undefined) {
+					a = 1;
+				}
+				else if (i == undefined && $this.data('step') != undefined) {
+					a = $(this).data('step');
+				}
+				else {
+					a = i;
+				}
+				$(this).find('li').removeClass('active');
+				$(this).find('li:lt(' + a + ')').addClass('active');
+			});
+		};
+
+		bsStep(2)
+	</script>
+
+</body>
+
+</html>
